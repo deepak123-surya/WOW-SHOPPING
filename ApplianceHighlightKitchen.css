@@ -1,0 +1,267 @@
+.appliance-kitchen-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.kitchen-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.kitchen-header h1 {
+  color: #2d3748;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.kitchen-header p {
+  color: #718096;
+  font-size: 1.1rem;
+}
+
+.kitchen-display {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.kitchen-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: filter 0.3s ease;
+}
+
+.kitchen-background.blurred {
+  filter: blur(5px) brightness(0.8);
+}
+
+.kitchen-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.appliance-overlay {
+  position: absolute;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.appliance-overlay:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+  border: 2px dashed #3b82f6;
+}
+
+.appliance-overlay.highlighted {
+  background-color: rgba(59, 130, 246, 0.2);
+  border: 2px solid #3b82f6;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.appliance-hotspot {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appliance-tooltip {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid #e2e8f0;
+  min-width: 180px;
+  z-index: 100;
+  animation: fadeInUp 0.3s ease;
+}
+
+.appliance-tooltip h3 {
+  margin: 0 0 5px 0;
+  color: #2d3748;
+  font-size: 1rem;
+}
+
+.appliance-tooltip p {
+  margin: 0;
+  color: #718096;
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+.appliance-info-panel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid #e2e8f0;
+  max-width: 300px;
+  z-index: 50;
+  animation: slideInRight 0.3s ease;
+}
+
+.info-content h2 {
+  margin: 0 0 10px 0;
+  color: #2d3748;
+  font-size: 1.4rem;
+}
+
+.info-content p {
+  margin: 0 0 15px 0;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+.appliance-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.feature-tag {
+  background: #edf2f7;
+  color: #4a5568;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.appliances-list {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.appliances-list h3 {
+  margin: 0 0 20px 0;
+  color: #2d3748;
+  font-size: 1.3rem;
+}
+
+.appliances-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.appliance-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background: #f7fafc;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.appliance-card:hover {
+  background: #edf2f7;
+  border-color: #cbd5e0;
+  transform: translateY(-2px);
+}
+
+.appliance-card.active {
+  background: #ebf8ff;
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.appliance-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .kitchen-display {
+    height: 400px;
+  }
+
+  .appliance-info-panel {
+    position: relative;
+    top: auto;
+    right: auto;
+    max-width: none;
+    margin: 20px;
+  }
+
+  .appliances-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .appliance-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kitchen-header h1 {
+    font-size: 2rem;
+  }
+
+  .kitchen-display {
+    height: 300px;
+  }
+
+  .appliances-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
